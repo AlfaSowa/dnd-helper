@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+@layer base {
+  html {
+    --bg: rgba(197, 187, 164);
+    --main: rgba(149, 138, 122);
+    --primary: #403d39;
+    --secondary: #252422;
+    --odd: #eb5e28;
+  }
+
+  svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}

@@ -1,31 +1,40 @@
-import { CharactersCardsList } from '../../../entities/characters-cards';
-import { CharacterType } from '../../../entities/characters-cards/model';
-import { MainWrapper } from '../../../entities/main-wrapper';
+import { Link } from 'react-router-dom';
+import { RoutePaths } from '../../../app/routes';
+import { useGetCharactersQuery } from '../../../containers/characters';
+import { useGetRoomsQuery } from '../../../containers/rooms';
 
 export const MainPage = () => {
-  const heroes: CharacterType[] = [
-    { id: '1', name: 'sdfdsf' },
-    { id: '2', name: 'fgdfg' },
-    { id: '3', name: 'sdfasdasd asddsf' },
-    { id: '4', name: 'sdfsdas asddsf' },
-  ];
-  const nps: CharacterType[] = [
-    { id: '11', name: 'asdc asd' },
-    { id: '12', name: 'jkhjkhf dfgdf df' },
-  ];
+  const { data: characters } = useGetCharactersQuery();
+  const { data: rooms } = useGetRoomsQuery();
+
+  console.log('data', characters);
 
   return (
-    <MainWrapper
-      lContent={<CharactersCardsList list={heroes} />}
-      mContent={
+    <div>
+      <div>MainPage</div>
+
+      <Link to={RoutePaths.characters.onNavigate()}>Список персонажей</Link>
+      <Link to={RoutePaths.characters.create.onNavigate()}>Создать персонажа</Link>
+
+      <div className='flex gap-8'>
         <div>
-          <div>123123</div>
-          <div>123123</div>
-          <div>123123</div>
-          <div>123123</div>
+          {characters?.map((character) => (
+            <Link to={RoutePaths.characters.item.onNavigate(character.id)} key={character.id}>
+              <div>{character.name}</div>
+              <div>{character.id}</div>
+            </Link>
+          ))}
         </div>
-      }
-      rContent={<CharactersCardsList list={nps} />}
-    />
+
+        <div>
+          {rooms?.map((room) => (
+            <Link to={RoutePaths.rooms.item.onNavigate(room.id)} key={room.id}>
+              <div>{room.name}</div>
+              <div>{room.id}</div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };

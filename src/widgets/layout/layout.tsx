@@ -6,7 +6,7 @@ export const Layout = () => {
   return (
     <LayoutAntd style={{ minHeight: '100vh' }}>
       <LayoutAntd>
-        <Content>
+        <Content className='flex flex-auto'>
           <Outlet />
         </Content>
       </LayoutAntd>

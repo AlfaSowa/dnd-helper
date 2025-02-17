@@ -1,0 +1,42 @@
+/* eslint-disable */
+/* tslint:disable */
+/*
+ * ---------------------------------------------------------------
+ * ## THIS FILE WAS GENERATED VIA SWAGGER-TYPESCRIPT-API        ##
+ * ##                                                           ##
+ * ## AUTHOR: acacode                                           ##
+ * ## SOURCE: https://github.com/acacode/swagger-typescript-api ##
+ * ---------------------------------------------------------------
+ */
+
+export type CreateCharacterDto = object;
+
+export interface Character {
+  id: string;
+  name: string;
+}
+
+export type UpdateCharacterDto = object;
+
+export type CreateRoomDto = object;
+
+export interface Room {
+  id: string;
+  name: string;
+}
+
+export type UpdateRoomDto = object;
+
+export interface CreateHeroDto {
+  characterId: string;
+  roomId: string;
+}
+
+export interface Hero {
+  id: string;
+  name: string;
+  roomId: string;
+  characterId: string;
+}
+
+export type UpdateHeroDto = object;

@@ -40,3 +40,36 @@ export interface Hero {
 }
 
 export type UpdateHeroDto = object;
+
+export interface CreateAbilityDto {
+  name: string;
+}
+
+export interface Ability {
+  id: string;
+  /** @example "атлетика, анализ, история" */
+  name: string;
+  characteristic: Characteristic;
+}
+
+export interface Characteristic {
+  id: string;
+  /** @example "сила, ловкость" */
+  name: string;
+  abilities: Ability[];
+}
+
+export interface UpdateAbilityDto {
+  name?: string;
+  id: string;
+}
+
+export interface CreateCharacteristicDto {
+  name: string;
+  abilitiesIds: string[];
+}
+
+export interface UpdateCharacteristicDto {
+  name?: string;
+  abilitiesIds?: string[];
+}

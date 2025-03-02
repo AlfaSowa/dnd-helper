@@ -9,9 +9,6 @@ export const CharactersPage = () => {
     <div>
       <div>CharactersPage</div>
 
-      <Link to={RoutePaths.root.onNavigate()}>Главная странца</Link>
-      <Link to={RoutePaths.characters.create.onNavigate()}>Создать персонажа</Link>
-
       {characters?.map((character) => (
         <Link to={RoutePaths.characters.item.onNavigate(character.id)} key={character.id}>
           <div>{character.name}</div>

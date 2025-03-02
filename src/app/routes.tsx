@@ -3,6 +3,7 @@ import { CharactersCreatePage, CharactersItemPage, CharactersPage } from '../pag
 import { MainPage } from '../pages/main';
 import { RoomPage, RoomsListPage } from '../pages/rooms';
 import { Layout } from '../widgets/layout';
+import { PageWrapper } from '../widgets/page-wrapper';
 
 export class RoutePaths {
   static root = {
@@ -58,6 +59,7 @@ export const browserRouter = createBrowserRouter([
       },
       {
         path: RoutePaths.characters.path,
+        Component: PageWrapper,
         children: [
           {
             index: true,
